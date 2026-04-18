@@ -1,71 +1,121 @@
-import { Send } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Send, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { GithubLogo, TwitterLogo, LinkedinLogo, FacebookLogo, InstagramLogo } from '@phosphor-icons/react';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    solutions: [
+      { name: 'Web Development', href: '#services' },
+      { name: 'App Development', href: '#services' },
+      { name: 'UI/UX Design', href: '#services' },
+      { name: 'Digital Marketing', href: '#services' },
+    ],
+    company: [
+      { name: 'About Us', href: '#contact' },
+      { name: 'Our Process', href: '#solutions' },
+      { name: 'Pricing', href: '#pricing' },
+      { name: 'Careers', href: '#' },
+    ]
+  };
+
+  const socialLinks = [
+    { icon: <LinkedinLogo weight="fill" size={20} />, href: '#', label: 'LinkedIn' },
+    { icon: <GithubLogo weight="fill" size={20} />, href: 'https://github.com/maverintechnology-ship-it', label: 'GitHub' },
+    { icon: <InstagramLogo weight="fill" size={20} />, href: '#', label: 'Instagram' },
+  ];
+
   return (
-    <footer id="contact" className="bg-slate-50 border-t border-slate-100 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-4 mb-6 cursor-pointer group">
+    <footer className="relative bg-slate-50 border-t border-slate-200 overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+          
+          {/* Brand Section */}
+          <div className="lg:col-span-6 space-y-8">
+            <div className="flex items-center gap-4 group cursor-pointer">
               <div className="relative">
                 <div className="absolute inset-0 bg-pink-500/20 blur-2xl rounded-full group-hover:bg-pink-500/40 transition-colors duration-300"></div>
-                <img src="/logo.png" alt="Maverin Logo" className="relative w-14 h-14 object-contain invert" />
+                <img src="/logo.png" alt="Maverin Logo" className="relative w-16 h-16 object-contain invert" />
               </div>
-              <span className="text-2xl font-bold tracking-tight text-slate-800">
-                Mave<span className="text-pink-500">rin</span>
+              <span className="text-3xl font-bold tracking-tight text-slate-800">
+                Mave<span className="text-pink-500 font-extrabold">rin</span>
               </span>
             </div>
-            <p className="text-slate-500 mb-6 text-sm leading-relaxed">
+            
+            <p className="text-slate-500 text-lg leading-relaxed max-w-sm">
               Empowering next-generation startups and enterprises with scalable, beautiful, and highly performant digital solutions.
             </p>
+
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  whileHover={{ y: -3, scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-pink-500 hover:border-pink-200 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="font-bold text-slate-800 mb-6">Services</h4>
-            <ul className="space-y-4 text-sm text-slate-500">
-              <li><a href="#" className="hover:text-pink-500 transition-colors">Web Development</a></li>
-              <li><a href="#" className="hover:text-pink-500 transition-colors">App Development</a></li>
-              <li><a href="#" className="hover:text-pink-500 transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-pink-500 transition-colors">Cloud Solutions</a></li>
-            </ul>
-          </div>
-
-          {/* Contact Details */}
-          <div>
-            <h4 className="font-bold text-slate-800 mb-6">Contact</h4>
-            <ul className="space-y-4 text-sm text-slate-500">
-              <li>contact@maverin.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>123 Innovation Drive<br/>Tech City, TC 90210</li>
-            </ul>
-          </div>
-
-          {/* Newsletter subscription */}
-          <div>
-            <h4 className="font-bold text-slate-800 mb-6">Stay Updated</h4>
-            <p className="text-slate-500 text-sm mb-4">Subscribe to our newsletter for the latest updates and insights.</p>
-            <div className="flex flex-col gap-2">
-              <div className="relative">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="w-full pl-4 pr-12 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-all text-sm"
-                />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-pink-500 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-colors">
-                  <Send className="w-4 h-4" />
-                </button>
-              </div>
+          {/* Quick Links Group */}
+          <div className="lg:col-span-6 grid grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest">Solutions</h4>
+              <ul className="space-y-4">
+                {footerLinks.solutions.map((link, idx) => (
+                  <li key={idx}>
+                    <a href={link.href} className="text-slate-500 hover:text-pink-500 flex items-center gap-2 group transition-colors duration-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-pink-500 transition-colors" />
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-6">
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest">Company</h4>
+              <ul className="space-y-4">
+                {footerLinks.company.map((link, idx) => (
+                  <li key={idx}>
+                    <a href={link.href} className="text-slate-500 hover:text-pink-500 flex items-center gap-2 group transition-colors duration-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-pink-500 transition-colors" />
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-sm">© {(new Date().getFullYear())} Maverin. All rights reserved.</p>
-          <div className="flex gap-4 text-sm font-medium text-slate-500">
-            <a href="#" className="hover:text-pink-500 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-pink-500 transition-colors">Terms of Service</a>
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-slate-400 text-sm font-medium">
+            © {currentYear} <span className="text-slate-600">Maverin Technology</span>. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-2 text-slate-400 text-sm">
+            <span>Made with</span>
+            <motion.span 
+              animate={{ scale: [1, 1.2, 1] }} 
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-pink-500"
+            >
+              ❤️
+            </motion.span>
+            <span>by</span>
+            <a href="#" className="font-bold text-slate-600 hover:text-pink-500 transition-colors">MAVERIN</a>
           </div>
         </div>
       </div>
@@ -74,3 +124,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
