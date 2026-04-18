@@ -1,0 +1,174 @@
+.wall-of-love-section {
+    padding: 6rem 2rem;
+    background: url('../assets/pink_heart_leaf_bg_1776410046891.png') center center / cover fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wol-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.wol-header {
+    background: linear-gradient(135deg, #8B2E4E 0%, #b84270 100%);
+    border-radius: 40px;
+    padding: 2.5rem 4rem;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(139, 46, 78, 0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.wol-headline {
+    color: #fff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.wol-rating-badge {
+    background: #fff;
+    border-radius: 30px;
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.wol-rating-number {
+    color: #3a1a24;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.wol-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 2rem;
+    overflow-x: auto;
+    width: 100%;
+    padding: 1rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.testimonial-card-unified {
+    border-radius: 48px;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    height: 100%;
+    min-height: 320px;
+}
+
+.testimonial-card-unified:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.card-header-unified {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.user-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #3a1a24;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.5px;
+}
+
+.user-role {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #8B2E4E;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+}
+
+.stars-container {
+    display: flex;
+    gap: 3px;
+}
+
+.card-icon-unified {
+    color: #8B2E4E;
+    opacity: 0.8;
+}
+
+.quote-unified {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #3a1a24;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.wol-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.wol-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    color: #8B2E4E;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(139, 46, 78, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wol-btn:hover {
+    transform: scale(1.1);
+    background: #fff;
+    box-shadow: 0 12px 24px rgba(139, 46, 78, 0.25);
+}
+
+@media (max-width: 1024px) {
+    .wol-grid-container {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .wol-grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .wol-header {
+        padding: 2rem;
+    }
+}
