@@ -1,6 +1,6 @@
 .wall-of-love-section {
     padding: 6rem 2rem;
-    background: url('../assets/pink_heart_leaf_bg_1776410046891.png') center center / cover fixed;
+    background: url('/assets/pink_heart_leaf_bg_1776410046891.png') center center / cover fixed;
     min-height: 100vh;
     display: flex;
     justify-content: center;
