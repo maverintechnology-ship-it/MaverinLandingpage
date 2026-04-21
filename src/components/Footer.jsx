@@ -22,9 +22,9 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <LinkedinLogo weight="fill" size={20} />, href: '#', label: 'LinkedIn' },
+    { icon: <LinkedinLogo weight="fill" size={20} />, href: 'https://www.linkedin.com/company/maverin-technology/', label: 'LinkedIn' },
     { icon: <GithubLogo weight="fill" size={20} />, href: 'https://github.com/maverintechnology-ship-it', label: 'GitHub' },
-    { icon: <InstagramLogo weight="fill" size={20} />, href: '#', label: 'Instagram' },
+    { icon: <InstagramLogo weight="fill" size={20} />, href: 'https://www.instagram.com/__maverintechnology__?igsh=anR6Z3kwcHhmdDQ4', label: 'Instagram' },
   ];
 
   return (
